@@ -1,27 +1,8 @@
-[image1]: ./img/example_output.png "Example Output"
-[image2]: ./img/sample_world.png "Sample World"
+from math import *
+import random
+import numpy as np
 
 
-# Landmark Detection & Robot Tracking
-
-Implementing SLAM (Simultaneous Localization and Mapping) for a 2 dimensional world
-
-![Example Output][image1]
-
-
-# Overview
-
-1. Robot Moving and Sensing
-2. Omega and Xi, Constraints
-3. Landmark Detection and Tracking
-
-
-# Robot Moving and Sensing
-
-Localizing a robot in a 2D grid world. The basis for simultaneous localization and mapping (SLAM) is to gather information from a robot's sensors and motions over time, and then use information about measurements and motion to re-construct a map of the world.
-
-## Robot class
-```python
 class robot:
     def __init__(self, world_size = 100.0, measurement_range = 30.0,
                  motion_noise = 1.0, measurement_noise = 1.0):
@@ -94,39 +75,3 @@ class robot:
     # called when print(robot) is called; prints the robot's location
     def __repr__(self):
         return 'Robot: [x=%.5f y=%.5f]'  % (self.x, self.y)
-
-```
-
-## Define a world and a robot
-
-```python
-world_size         = 10.0    # size of world (square)
-measurement_range  = 5.0     # range at which we can sense landmarks
-motion_noise       = 0.2     # noise in robot motion
-measurement_noise  = 0.2     # noise in the measurements
-
-# instantiate a robot
-r = robot(world_size, measurement_range, motion_noise, measurement_noise)
-```
-
-## Visualizing the world
-
-```python
-# import helper function
-from helpers import display_world
-
-# define figure size
-plt.rcParams["figure.figsize"] = (5,5)
-
-# call display_world and display the robot in it's grid world
-print(r)
-display_world(int(world_size), [r.x, r.y])
-```
-
-![Sample World][image2]
-
-# Omega and Xi, Constraints
-
-# Landmark Detection and Tracking
-
-# Reference
